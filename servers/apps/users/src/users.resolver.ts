@@ -1,26 +1,32 @@
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { JwtService } from '@nestjs/jwt';
+import { BadRequestException } from '@nestjs/common';
+import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { RegisterDto } from './dto/user.dto';
-// import { Response } from 'express';
+import { RegisterResponse } from './types/user.types';
+import { UsersService } from './users.service';
+import { User } from './entities/user.entity';
+import { Response } from 'express';
 
-@Injectable()
-export class UsersService {
-  constructor(
-    private readonly jwtService: JwtService,
-    // private readonly prisma:
-    private readonly configService: ConfigService,
-  ) {}
+@Resolver('User')
+// @UseFilters
+export class UsersResolver {
+  constructor(private readonly usersService: UsersService) {}
 
-  // Register User
-  async register(registerDto: RegisterDto) {
-    const { name, email, password } = registerDto;
-    const user = {
-      name,
-      email,
-      password,
-    };
+  @Mutation(() => RegisterResponse)
+  async register(
+    @Args('registerInput') registerDto: RegisterDto,
+    @Context() context: { res: Response },
+  ): Promise<RegisterResponse> {
+    if (!registerDto.name || !registerDto.email || !registerDto.password) {
+      throw new BadRequestException('Please provide all required fields');
+    }
 
-    return user;
+    const user = await this.usersService.register(registerDto, context.res);
+
+    return { user };
+  }
+
+  @Query(() => [User])
+  async getUsers(): Promise<User[]> {
+    return this.usersService.getUsers();
   }
 }
