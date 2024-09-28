@@ -83,3 +83,34 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: var(--background);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 100vh;
+    border: 1.5px solid var(--accent);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+
+  .dark .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: var(--muted);
+  }
+
+  .dark .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+}
