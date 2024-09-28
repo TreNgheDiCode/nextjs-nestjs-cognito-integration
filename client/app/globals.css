@@ -16,11 +16,11 @@ body,
 
 @layer base {
   :root {
-    --text: 40 48% 6%;
-    --background: 34 47% 97%;
-    --primary: #279cec;
-    --secondary: 253 57% 82%;
-    --accent: 215 35% 37%;
+    --text: #171208;
+    --background: #fbf8f4;
+    --primary: #00ccfa;
+    --secondary: #c2b7eb;
+    --accent: #3d597f;
 
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -46,11 +46,11 @@ body,
   }
 
   .dark {
-    --text: 40 48% 94%;
-    --background: 34 47% 3%;
-    --primary: 191 100% 51%;
-    --secondary: 253 57% 18%;
-    --accent: 215 35% 63%;
+    --text: #f7f2e8;
+    --background: #0b0804;
+    --primary: #05d1ff;
+    --secondary: #1f1448;
+    --accent: #809bc2;
 
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;

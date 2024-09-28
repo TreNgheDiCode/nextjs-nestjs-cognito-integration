@@ -61,12 +61,12 @@ const Logo = ({
         (animate ? (
           <SidebarOpen
             onClick={setAnimate}
-            className="cursor-pointer text-primary"
+            className="cursor-pointer text-primary dark:text-text"
           />
         ) : (
           <SidebarClose
             onClick={setAnimate}
-            className="cursor-pointer text-primary"
+            className="cursor-pointer text-primary dark:text-text"
           />
         ))}
     </div>
