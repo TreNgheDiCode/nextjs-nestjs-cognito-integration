@@ -1,8 +1,8 @@
+import { auth } from "@/lib/auth";
 import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import localFont from "next/font/local";
 import "./globals.css";
-import { auth } from "@/lib/auth";
-import { AuthProvider } from "@/components/providers/auth-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +28,7 @@ export default async function RootLayout({
   const session = await auth();
 
   return (
-    <AuthProvider session={session}>
+    <SessionProvider session={session}>
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -36,6 +36,6 @@ export default async function RootLayout({
           {children}
         </body>
       </html>
-    </AuthProvider>
+    </SessionProvider>
   );
 }

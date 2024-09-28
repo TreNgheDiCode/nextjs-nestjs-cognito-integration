@@ -223,7 +223,7 @@ export const NestedSidebarLink = ({
       <AccordionItem value={link.label}>
         <AccordionTrigger
           className={cn(
-            "flex items-center justify-start gap-2 group/sidebar py-2 px-4 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg",
+            "w-full flex items-center justify-start gap-2 group/sidebar py-2 px-4 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg",
             className,
             !open && "px-0"
           )}

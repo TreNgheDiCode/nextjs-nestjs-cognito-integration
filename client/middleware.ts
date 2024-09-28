@@ -5,12 +5,12 @@ export default auth((req) => {
   const { nextUrl, auth } = req;
 
   const isAdminRoute = nextUrl.pathname.startsWith("/");
-  const isSignInPage = nextUrl.pathname === "/login";
+  const isSignInPage = nextUrl.pathname === "/auth/login";
 
   if (isAdminRoute) {
     if (!auth && !isSignInPage) {
       console.log("Redirecting to sign-in page.");
-      return NextResponse.redirect(new URL("/login", nextUrl));
+      return NextResponse.redirect(new URL("/auth/login", nextUrl));
     }
 
     if (auth && isSignInPage) {
