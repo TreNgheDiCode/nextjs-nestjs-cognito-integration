@@ -26,7 +26,7 @@ export default function BlankContent({
         {[...new Array(4)].map((_, idx) => (
           <div
             key={"first " + idx}
-            className="h-20 w-full rounded-lg  bg-gray-200 dark:bg-neutral-800 animate-pulse"
+            className="h-20 w-full rounded  bg-gray-200 dark:bg-neutral-800 animate-pulse"
           ></div>
         ))}
       </div>
@@ -34,7 +34,7 @@ export default function BlankContent({
         {[...new Array(2)].map((_, idx) => (
           <div
             key={"second" + idx}
-            className="h-full w-full rounded-lg  bg-gray-200 dark:bg-neutral-800 animate-pulse"
+            className="h-full w-full rounded  bg-gray-200 dark:bg-neutral-800 animate-pulse"
           ></div>
         ))}
       </div>
