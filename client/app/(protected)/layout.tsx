@@ -1,9 +1,10 @@
-import DashboardSidebar from "@/components/sidebar/dashboardSidebar";
 import Header from "@/components/header";
 import HeaderProvider from "@/components/providers/headerProvider";
+import DashboardSidebar from "@/components/sidebar/dashboardSidebar";
 import ToolbarWrapper from "@/components/toolbar";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-export default async function ProtectedLayout({
+export default function ProtectedLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -18,6 +19,7 @@ export default async function ProtectedLayout({
             <ToolbarWrapper />
             <div className="p-6 flex-1 flex flex-col overflow-hidden gap-2.5">
               {children}
+              <ReactQueryDevtools />
             </div>
           </div>
         </section>

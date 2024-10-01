@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { BreadCrumbPropsType } from "./ui/breadcrumb";
 import { useHeader } from "./providers/headerProvider";
+import { BreadCrumbPropsType } from "./ui/breadcrumb";
 
 interface BlankContentProps {
   title: string;

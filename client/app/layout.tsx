@@ -1,8 +1,8 @@
+import Providers from "@/components/providers";
 import { auth } from "@/lib/auth";
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/themeProvider";
 
 export const metadata: Metadata = {
   title: "Wonder CRM",
@@ -20,14 +20,7 @@ export default async function RootLayout({
     <SessionProvider session={session}>
       <html lang="en">
         <body className={`antialiased`}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
+          <Providers>{children}</Providers>
         </body>
       </html>
     </SessionProvider>

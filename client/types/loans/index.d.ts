@@ -6,7 +6,36 @@ import { LoanProposalVersions } from "./proposalVersions";
 import { LoanQuote } from "./quote";
 import { LoanSubjectProperty } from "./subjectProperty";
 
-export interface LisLoansResponse {
+export interface ListLoansQueryParams {
+  query: {
+    name?: string;
+    memberId?: string;
+    teamId?: string;
+    status?: LoanStatus[];
+    startDate?: string;
+    endDate?: string;
+    quoteLoanPurpose?: string[];
+    quoteZipcode?: string;
+    quoteLoanType?: string[];
+    subjectPropertyStatecode?: string;
+  };
+  page: number;
+  limit: number;
+  sort: {
+    status?: sortBase;
+    id?: sortBase;
+    createdAt?: sortBase;
+    updatedAt?: sortBase;
+    "quote.zipcode"?: sortBase;
+    textSearchScore?: sortBase;
+    "lockedRate.expiredAt"?: sortBase;
+    closedAt?: sortBase;
+  };
+}
+
+type sortBase = 1 | -1;
+
+export interface ListLoansResponse {
   success: boolean;
   metadata: Metadata;
   data: Loan[];
