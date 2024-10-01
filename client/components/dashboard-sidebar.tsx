@@ -26,7 +26,7 @@ export default function DashboardSidebar() {
       <SidebarBody className="justify-between gap-10">
         <div className="flex flex-col flex-1 hover:overflow-y-auto overflow-hidden hover:scrollbar transition-transform">
           <Logo open={open} animate={animate} setAnimate={toggleAnimate} />
-          <div className="mt-4 flex flex-col gap-2">
+          <div className="mt-4 flex flex-col">
             {navLinks.map((link, idx) => {
               const active = pathname === link.href;
 

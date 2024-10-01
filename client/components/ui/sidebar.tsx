@@ -101,7 +101,7 @@ export const DesktopSidebar = ({
     <>
       <motion.div
         className={cn(
-          "h-full px-4 py-4 hidden  md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
+          "h-full py-4 hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
           className
         )}
         animate={{
@@ -187,9 +187,10 @@ export const SidebarLink = ({
     <Link
       href={link.href || "#"}
       className={cn(
-        "flex items-center justify-start gap-2 group/sidebar py-2 px-4 dark:text-accent hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg",
+        "flex items-center justify-start gap-2 group/sidebar p-1.5 dark:text-accent hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded",
         className,
-        active && "text-primary bg-gray-200 dark:bg-gray-700 dark:text-text",
+        active &&
+          "font-PoppinsSemiBold bg-gray-200 dark:bg-gray-700 dark:text-text",
         !open && "px-0"
       )}
       {...props}
@@ -201,7 +202,7 @@ export const SidebarLink = ({
           display: animate ? (open ? "inline-block" : "none") : "inline-block",
           opacity: animate ? (open ? 1 : 0) : 1,
         }}
-        className="text-lg font-semibold group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+        className="text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
       >
         {link.label}
       </motion.span>
@@ -223,12 +224,11 @@ export const NestedSidebarLink = ({
       <AccordionItem value={link.label}>
         <AccordionTrigger
           className={cn(
-            "w-full flex items-center justify-start gap-2 group/sidebar dark:text-accent py-2 px-4 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg",
+            "w-full group/sidebar dark:text-accent py-1.5 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-sm text-muted-foreground px-5",
             className,
             !open && "px-0"
           )}
         >
-          <div className={cn(!open && "mx-auto")}>{link.icon}</div>
           <motion.span
             animate={{
               display: animate
@@ -238,12 +238,12 @@ export const NestedSidebarLink = ({
                 : "inline-block",
               opacity: animate ? (open ? 1 : 0) : 1,
             }}
-            className="text-lg font-semibold group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+            className="font-PoppinsMedium uppercase group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
           >
             {link.label}
           </motion.span>
         </AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="px-3.5">
           {link.children?.map((item, idx) => {
             const active = pathname === item.href;
             return <SidebarLink key={idx} link={item} active={active} />;

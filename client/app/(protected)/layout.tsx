@@ -11,10 +11,9 @@ export default async function ProtectedLayout({
     <main className="rounded-md flex flex-col md:flex-row w-full h-screen overflow-hidden">
       <DashboardSidebar />
       <HeaderProvider>
-        <section className="flex flex-1 overflow-scroll">
-          {/* Header */}
-          <div className="p-2 md:px-10 md:pb-10 rounded-tl-lg border border-neutral-200 size-full flex flex-col gap-2">
-            <Header />
+        <section className="flex flex-col border border-neutral-200 flex-1 overflow-hidden">
+          <Header />
+          <div className="size-full flex flex-col overflow-scroll">
             {children}
           </div>
         </section>

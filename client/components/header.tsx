@@ -20,7 +20,7 @@ export default function Header() {
     <div className="border-b bg-neutral-100 dark:bg-neutral-800">
       <nav className="h-14 flex items-center justify-between px-4">
         <div>
-          <h1 className="text-primary dark:text-text text-xl font-bold tracking-tight">
+          <h1 className="dark:text-text text-xl font-bold tracking-tight">
             {title}
           </h1>
           <BreadCrumb items={breadCrumbItems} />

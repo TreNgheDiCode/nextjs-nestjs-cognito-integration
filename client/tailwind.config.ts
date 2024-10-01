@@ -11,6 +11,17 @@ const config: Config = {
   ],
   prefix: "",
   theme: {
+    fontFamily: {
+      Montserrat: ["Montserrat", "sans-serif"],
+      Poppins: ["Poppins", "sans-serif"],
+      PoppinsThin: ["PoppinsThin", "sans-serif"],
+      PoppinsExtraLight: ["PoppinsExtraLight", "sans-serif"],
+      PoppinsLight: ["PoppinsLight", "sans-serif"],
+      PoppinsMedium: ["PoppinsMedium", "sans-serif"],
+      PoppinsSemiBold: ["PoppinsSemiBold", "sans-serif"],
+      PoppinsBold: ["PoppinsBold", "sans-serif"],
+      PoppinsExtraBold: ["PoppinsExtraBold", "sans-serif"],
+    },
     container: {
       center: true,
       padding: "2rem",
