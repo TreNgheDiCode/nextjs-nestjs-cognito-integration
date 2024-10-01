@@ -3,6 +3,7 @@
   "rules": {
     "no-console": "warn",
     "import/named": "off",
-    "@typescript-eslint/no-require-imports": "off"
+    "@typescript-eslint/no-require-imports": "off",
+    "@next/next/no-img-element": "off"
   }
 }

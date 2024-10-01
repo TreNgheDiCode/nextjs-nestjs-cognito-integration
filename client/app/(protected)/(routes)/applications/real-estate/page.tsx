@@ -9,6 +9,10 @@ export const metadata: Metadata = {
 export default function RealEstatePage() {
   const breadCrumbItems: BreadCrumbPropsType["items"] = [
     {
+      link: "/applications",
+      title: "Applications",
+    },
+    {
       link: "/applications/real-estate",
       title: "Real Estate",
     },

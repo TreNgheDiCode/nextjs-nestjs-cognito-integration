@@ -65,13 +65,13 @@ const Logo = ({ open, setOpen }: { open: boolean; setOpen: () => void }) => {
         {open ? (
           <SidebarClose
             onClick={setOpen}
-            className="cursor-pointer text-primary dark:text-text size-6"
+            className="cursor-pointer text-accent dark:text-text size-6"
             strokeWidth={1}
           />
         ) : (
           <SidebarOpen
             onClick={setOpen}
-            className="cursor-pointer text-primary dark:text-text size-6"
+            className="cursor-pointer text-accent dark:text-text size-6"
             strokeWidth={1}
           />
         )}

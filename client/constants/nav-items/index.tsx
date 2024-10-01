@@ -70,6 +70,11 @@ export const navLinks: Links[] = [
     icon: <IconSettings strokeWidth={1} />,
     children: [
       {
+        label: "All",
+        href: "/system",
+        icon: <IconCategory strokeWidth={1} />,
+      },
+      {
         label: "Settings",
         href: "/system/settings",
         icon: <IconSettings strokeWidth={1} />,

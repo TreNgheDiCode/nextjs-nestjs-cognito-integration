@@ -3,19 +3,18 @@ import { BreadCrumbPropsType } from "@/components/breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dashboard | Wonder CRM",
+  title: "Organizations | Wonder CRM",
 };
 
-export default function DashboardPage() {
+export default function OrganizationsPage() {
   const breadCrumbItems: BreadCrumbPropsType["items"] = [
     {
-      title: "General",
-      link: "/",
-    },
-    {
-      title: "Dasboard",
-      link: "/",
+      link: "/organizations",
+      title: "Organizations",
     },
   ];
-  return <BlankContent title="Dashboard" breadCrumbItems={breadCrumbItems} />;
+
+  return (
+    <BlankContent title="Organizations" breadCrumbItems={breadCrumbItems} />
+  );
 }

@@ -9,8 +9,12 @@ export const metadata: Metadata = {
 export default function TeamsPage() {
   const breadCrumbItems: BreadCrumbPropsType["items"] = [
     {
-      link: "/applications/teams",
-      title: "teams",
+      link: "/organizations",
+      title: "Organizations",
+    },
+    {
+      link: "/organizations/teams",
+      title: "Teams",
     },
   ];
 
