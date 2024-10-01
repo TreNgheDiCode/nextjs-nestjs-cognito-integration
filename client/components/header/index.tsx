@@ -21,7 +21,7 @@ export default function Header() {
       <nav className="flex items-center justify-between px-6 py-3.5">
         <div className="flex flex-1 items-center justify-between">
           <div>
-            <h1 className="dark:text-text text-base font-MontserratBold">
+            <h1 className="uppercase dark:text-text text-base font-MontserratBold">
               {title}
             </h1>
             <BreadCrumb items={breadCrumbItems} />
