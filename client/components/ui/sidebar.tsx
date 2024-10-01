@@ -101,7 +101,7 @@ export const DesktopSidebar = ({
     <>
       <motion.div
         className={cn(
-          "h-full py-4 hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
+          "h-full hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
           className
         )}
         animate={{
@@ -224,7 +224,7 @@ export const NestedSidebarLink = ({
       <AccordionItem value={link.label}>
         <AccordionTrigger
           className={cn(
-            "w-full group/sidebar dark:text-accent py-1.5 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-sm text-muted-foreground px-5",
+            "w-full group/sidebar dark:text-accent py-4 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-sm text-muted-foreground px-5",
             className,
             !open && "px-0"
           )}

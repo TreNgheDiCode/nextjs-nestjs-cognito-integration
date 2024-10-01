@@ -14,7 +14,7 @@ export type BreadCrumbPropsType = {
 
 export default function BreadCrumb({ items }: BreadCrumbPropsType) {
   return (
-    <div className="flex items-center space-x-1 text-sm text-accent italic font-medium">
+    <div className="flex items-center space-x-1 text-sm text-accent font-Poppins">
       <Link
         href={"/"}
         className="overflow-hidden text-ellipsis whitespace-nowrap"
@@ -27,7 +27,7 @@ export default function BreadCrumb({ items }: BreadCrumbPropsType) {
           <Link
             href={item.link}
             className={cn(
-              "font-medium",
+              "font-PoppinsMedium",
               index === items.length - 1
                 ? "text-foreground pointer-events-none"
                 : "text-accent"

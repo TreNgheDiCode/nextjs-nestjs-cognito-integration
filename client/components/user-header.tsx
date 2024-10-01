@@ -8,8 +8,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -24,28 +22,32 @@ export function UserHeader({ session }: Props) {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="link" className="relative h-8 w-8 rounded-full">
-            <Avatar className="h-8 w-8">
+          <Button
+            variant="transparent"
+            className="size-full flex items-center gap-2.5 px-0 py-0"
+          >
+            <Avatar className="size-10">
               <AvatarImage
-                src={session.user?.image ?? "/images/logo.svg"}
-                alt={session.user?.name ?? ""}
+                src={session.user?.image ?? undefined}
+                alt={session.user?.name ?? "avatarImg"}
               />
-              <AvatarFallback>{session.user?.name?.[0]}</AvatarFallback>
+              <AvatarFallback className="text-background bg-primary font-Poppins">
+                <span>
+                  {session.user?.name?.split(" ")[0][0] ?? ""}
+                  {session.user?.name?.split(" ")[1][0] ?? ""}
+                </span>
+              </AvatarFallback>
             </Avatar>
+            <div className="flex flex-col gap-0.5 items-start">
+              <p className="font-MontserratMedium">
+                {session.user?.name ?? "[Unknown]"}
+              </p>
+              {/* TODO: Read User Role */}
+              <p className="font-Poppins text-xs text-accent">Administrator</p>
+            </div>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56" align="end" forceMount>
-          <DropdownMenuLabel className="font-normal">
-            <div className="flex flex-col space-y-1">
-              <p className="text-sm font-medium leading-none">
-                {session.user?.name ?? "Trang quản trị"}
-              </p>
-              <p className="text-xs leading-none text-muted-foreground">
-                {session.user?.email ?? "admin@mail.dev"}
-              </p>
-            </div>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
           <DropdownMenuItem
             onClick={() =>
               signOut({ redirect: true, callbackUrl: "/auth/login" })

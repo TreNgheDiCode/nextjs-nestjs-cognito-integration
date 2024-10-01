@@ -7,6 +7,11 @@ export const metadata: Metadata = {
 };
 
 export default function DashboardPage() {
-  const breadCrumbItems: BreadCrumbPropsType["items"] = [];
+  const breadCrumbItems: BreadCrumbPropsType["items"] = [
+    {
+      title: "Dashboard",
+      link: "/",
+    },
+  ];
   return <BlankContent title="Dashboard" breadCrumbItems={breadCrumbItems} />;
 }

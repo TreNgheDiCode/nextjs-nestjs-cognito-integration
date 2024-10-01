@@ -13,6 +13,13 @@ const config: Config = {
   theme: {
     fontFamily: {
       Montserrat: ["Montserrat", "sans-serif"],
+      MontserratThin: ["MontserratThin", "sans-serif"],
+      MontserratExtraLight: ["MontserratExtraLight", "sans-serif"],
+      MontserratLight: ["MontserratLight", "sans-serif"],
+      MontserratMedium: ["MontserratMedium", "sans-serif"],
+      MontserratSemiBold: ["MontserratSemiBold", "sans-serif"],
+      MontserratBold: ["MontserratBold", "sans-serif"],
+      MontserratExtraBold: ["MontserratExtraBold", "sans-serif"],
       Poppins: ["Poppins", "sans-serif"],
       PoppinsThin: ["PoppinsThin", "sans-serif"],
       PoppinsExtraLight: ["PoppinsExtraLight", "sans-serif"],
@@ -59,6 +66,7 @@ const config: Config = {
       },
     },
     borderRadius: {
+      full: "9999px",
       lg: "var(--radius)",
       md: "calc(var(--radius) - 2px)",
       sm: "calc(var(--radius) - 4px)",

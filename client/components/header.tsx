@@ -1,10 +1,10 @@
 "use client";
 
-import { useHeader } from "./providers/header-provider";
-import BreadCrumb from "./breadcrumb";
-import { UserHeader } from "./user-header";
 import { useSession } from "next-auth/react";
+import BreadCrumb from "./breadcrumb";
+import { useHeader } from "./providers/header-provider";
 import { ThemeToggle } from "./theme-toggle";
+import { UserHeader } from "./user-header";
 
 export default function Header() {
   const { title, breadCrumbItems } = useHeader();
@@ -12,24 +12,26 @@ export default function Header() {
 
   if (!data) {
     return (
-      <div className="border-b bg-neutral-100 dark:bg-neutral-800 h-14 animate-pulse"></div>
+      <div className="border-b border-l bg-neutral-100 dark:bg-neutral-800 h-14 animate-pulse"></div>
     );
   }
 
   return (
-    <div className="border-b bg-neutral-100 dark:bg-neutral-800">
-      <nav className="h-14 flex items-center justify-between px-4">
-        <div>
-          <h1 className="dark:text-text text-xl font-bold tracking-tight">
-            {title}
-          </h1>
-          <BreadCrumb items={breadCrumbItems} />
-        </div>
-        <div className="flex items-center gap-2.5">
+    <header className="border-b border-l bg-neutral-100 dark:bg-neutral-800">
+      <nav className="flex items-center justify-between px-6 py-3.5">
+        <div className="flex flex-1 items-center justify-between">
+          <div>
+            <h1 className="dark:text-text text-base font-MontserratBold">
+              {title}
+            </h1>
+            <BreadCrumb items={breadCrumbItems} />
+          </div>
           <ThemeToggle />
+        </div>
+        <div className="flex items-center gap-2.5 border-l-2 pl-4">
           <UserHeader session={data} />
         </div>
       </nav>
-    </div>
+    </header>
   );
 }
