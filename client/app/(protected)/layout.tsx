@@ -1,6 +1,6 @@
-import DashboardSidebar from "@/components/dashboard-sidebar";
+import DashboardSidebar from "@/components/sidebar/dashboardSidebar";
 import Header from "@/components/header";
-import HeaderProvider from "@/components/providers/header-provider";
+import HeaderProvider from "@/components/providers/headerProvider";
 
 export default async function ProtectedLayout({
   children,

@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { BreadCrumbPropsType } from "../breadcrumb";
+import { BreadCrumbPropsType } from "../ui/breadcrumb";
 
 interface HeaderContextType {
   title: string;

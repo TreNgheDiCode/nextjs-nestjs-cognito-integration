@@ -2,7 +2,7 @@ import { auth } from "@/lib/auth";
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ThemeProvider } from "@/components/providers/themeProvider";
 
 export const metadata: Metadata = {
   title: "Wonder CRM",

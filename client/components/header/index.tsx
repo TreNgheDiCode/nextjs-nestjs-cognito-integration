@@ -1,10 +1,10 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import BreadCrumb from "./breadcrumb";
-import { useHeader } from "./providers/header-provider";
-import { ThemeToggle } from "./theme-toggle";
-import { UserHeader } from "./user-header";
+import BreadCrumb from "../ui/breadcrumb";
+import { useHeader } from "../providers/headerProvider";
+import { ThemeToggle } from "./themeToggle";
+import { UserHeader } from "./userHeader";
 
 export default function Header() {
   const { title, breadCrumbItems } = useHeader();

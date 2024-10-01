@@ -1,6 +1,6 @@
 "use client";
 
-import { navLinks } from "@/constants/nav-items";
+import { navLinks } from "@/constants/navItems";
 import { SidebarClose, SidebarOpen } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,7 +10,7 @@ import {
   Sidebar,
   SidebarBody,
   SidebarLink,
-} from "./ui/sidebar";
+} from "../ui/sidebar";
 import { cn } from "@/lib/utils";
 
 export default function DashboardSidebar() {

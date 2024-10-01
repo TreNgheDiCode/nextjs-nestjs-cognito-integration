@@ -1,5 +1,5 @@
-import BlankContent from "@/components/blank-content";
-import { BreadCrumbPropsType } from "@/components/breadcrumb";
+import BlankContent from "@/components/blankContent";
+import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
