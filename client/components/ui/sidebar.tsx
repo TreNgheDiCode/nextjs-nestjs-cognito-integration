@@ -96,22 +96,16 @@ export const DesktopSidebar = ({
   children,
   ...props
 }: React.ComponentProps<typeof motion.div>) => {
-  const { open, setOpen, animate } = useSidebar();
+  const { open } = useSidebar();
   return (
     <>
       <motion.div
         className={cn(
-          "h-full hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
+          "h-full hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[256px] flex-shrink-0",
           className
         )}
         animate={{
-          width: animate ? (open ? "300px" : "80px") : "300px",
-        }}
-        onMouseEnter={() => {
-          if (animate) setOpen(true);
-        }}
-        onMouseLeave={() => {
-          if (animate) setOpen(false);
+          width: open ? "256px" : "64px",
         }}
         {...props}
       >
@@ -217,33 +211,37 @@ export const NestedSidebarLink = ({
   link: Links;
   className?: string;
 }) => {
-  const { open, animate } = useSidebar();
+  const { open } = useSidebar();
   const pathname = usePathname();
   return (
-    <Accordion type="single" collapsible className={cn("w-full", className)}>
+    <Accordion
+      type="single"
+      collapsible
+      value={open ? undefined : link.label}
+      className={cn("w-full", className)}
+    >
       <AccordionItem value={link.label}>
-        <AccordionTrigger
-          className={cn(
-            "w-full group/sidebar dark:text-accent py-4 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-sm text-muted-foreground px-5",
-            className,
-            !open && "px-0"
-          )}
-        >
-          <motion.span
-            animate={{
-              display: animate
-                ? open
-                  ? "inline-block"
-                  : "none"
-                : "inline-block",
-              opacity: animate ? (open ? 1 : 0) : 1,
-            }}
-            className="font-PoppinsMedium uppercase group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+        {open && (
+          <AccordionTrigger
+            open={open}
+            className={cn(
+              "w-full group/sidebar dark:text-accent py-4 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-sm text-muted-foreground px-5",
+              className,
+              !open && "px-0"
+            )}
           >
-            {link.label}
-          </motion.span>
-        </AccordionTrigger>
-        <AccordionContent className="px-3.5">
+            <motion.span
+              animate={{
+                display: open ? "inline-block" : "none",
+                opacity: open ? 1 : 0,
+              }}
+              className="font-PoppinsMedium uppercase group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+            >
+              {link.label}
+            </motion.span>
+          </AccordionTrigger>
+        )}
+        <AccordionContent className={cn("px-3.5", !open && "pt-2 pb-2")}>
           {link.children?.map((item, idx) => {
             const active = pathname === item.href;
             return <SidebarLink key={idx} link={item} active={active} />;
