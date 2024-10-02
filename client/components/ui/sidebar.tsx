@@ -181,7 +181,7 @@ export const SidebarLink = ({
     <Link
       href={link.href || "#"}
       className={cn(
-        "flex items-center justify-start gap-2 group/sidebar p-1.5 dark:text-accent hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded",
+        "flex items-center justify-start gap-2 group/sidebar p-1.5 dark:text-accent hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md",
         className,
         active &&
           "font-PoppinsSemiBold bg-gray-200 dark:bg-gray-700 dark:text-text",
@@ -196,7 +196,7 @@ export const SidebarLink = ({
           display: open ? "inline-block" : "none",
           opacity: open ? 1 : 0,
         }}
-        className="text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+        className="text-sm transition duration-150 whitespace-pre inline-block !p-0 !m-0"
       >
         {link.label}
       </motion.span>
@@ -235,7 +235,7 @@ export const NestedSidebarLink = ({
                 display: open ? "inline-block" : "none",
                 opacity: open ? 1 : 0,
               }}
-              className="font-PoppinsMedium uppercase group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+              className="font-PoppinsMedium uppercase transition duration-150 whitespace-pre inline-block !p-0 !m-0"
             >
               {link.label}
             </motion.span>

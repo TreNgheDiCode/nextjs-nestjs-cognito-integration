@@ -8,7 +8,7 @@ export const getLoansOptions = (searchData: ListLoansQueryParams) => {
     queryFn: async () => {
       const res = await axios
         .post(
-          `${process.env.API_URL}/getLoanApplicationsExternal`,
+          `${process.env.NEXT_PUBLIC_API_URL}/getLoanApplicationsExternal`,
           searchData,
           {
             params: {

@@ -1,11 +1,10 @@
 "use client";
 
+import { useGetLoanApplications } from "@/apis/resources/loans/gets/hooks/useGetLoanApplications";
 import Loading from "@/components/loading";
 import { useHeader } from "@/components/providers/headerProvider";
 import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
-import { getLoansOptions } from "@/data/loans";
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { DataTable } from "../dataTable";
 import { columns } from "./columns";
 
@@ -22,9 +21,11 @@ export default function LoansDataTable({ title, breadCrumbItems }: Props) {
     setBreadCrumbItems(breadCrumbItems);
   }, [title, breadCrumbItems, setTitle, setBreadCrumbItems]);
 
-  const { isPending, error, data, isFetching } = useSuspenseQuery(
-    getLoansOptions({ query: {}, page: 1, limit: 5, sort: {} })
-  );
+  const { isPending, error, data, isFetching } = useGetLoanApplications();
+
+  const flatData = useMemo(() => {
+    return data?.pages.flatMap((page) => page) ?? [];
+  }, [data]);
 
   if (isPending || isFetching) {
     return <Loading size="lg" />;
@@ -34,5 +35,5 @@ export default function LoansDataTable({ title, breadCrumbItems }: Props) {
     return "An error occurred: " + error.message;
   }
 
-  return <DataTable columns={columns} data={data?.data} />;
+  return <DataTable columns={columns} data={flatData} />;
 }
