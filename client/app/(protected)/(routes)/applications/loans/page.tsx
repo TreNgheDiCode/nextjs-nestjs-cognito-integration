@@ -3,7 +3,7 @@ import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Loans | Wonder CRM",
+  title: "Loan Applications | Wonder CRM",
 };
 
 const breadCrumbItems: BreadCrumbPropsType["items"] = [
@@ -13,10 +13,15 @@ const breadCrumbItems: BreadCrumbPropsType["items"] = [
   },
   {
     link: "/applications/loans",
-    title: "Loans",
+    title: "Loan Applications",
   },
 ];
 
-export default function LoansPage() {
-  return <LoansDataTable title="Loans" breadCrumbItems={breadCrumbItems} />;
+export default function LoanApplicationsPage() {
+  return (
+    <LoansDataTable
+      title="Loan Applications"
+      breadCrumbItems={breadCrumbItems}
+    />
+  );
 }

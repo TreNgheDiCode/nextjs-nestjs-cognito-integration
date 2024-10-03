@@ -5,6 +5,7 @@ import {
   IconBusinessplan,
   IconCategory,
   IconDashboard,
+  IconHeadset,
   IconSettings,
   IconUsers,
   IconUsersGroup,
@@ -62,6 +63,27 @@ export const navLinks: Links[] = [
         label: "Users",
         href: "/organizations/users",
         icon: <IconUsers strokeWidth={1} />,
+      },
+    ],
+  },
+  {
+    label: "Customers",
+    icon: <IconHeadset strokeWidth={1} />,
+    children: [
+      {
+        label: "All",
+        href: "/customers",
+        icon: <IconCategory strokeWidth={1} />,
+      },
+      {
+        label: "Loans",
+        href: "/customers/loans",
+        icon: <IconBusinessplan strokeWidth={1} />,
+      },
+      {
+        label: "Real Estate",
+        href: "/customers/real-estate",
+        icon: <IconBuildingEstate strokeWidth={1} />,
       },
     ],
   },
