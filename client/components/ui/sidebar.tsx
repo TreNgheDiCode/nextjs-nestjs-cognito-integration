@@ -184,7 +184,7 @@ export const SidebarLink = ({
         "flex items-center justify-start gap-2 group/sidebar p-1.5 dark:text-accent hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md",
         className,
         active &&
-          "font-PoppinsSemiBold bg-gray-200 dark:bg-gray-700 dark:text-text",
+          "font-PoppinsSemiBold bg-gray-200 dark:bg-gray-700 dark:text-text text-primary",
         !open && "px-0"
       )}
       {...props}

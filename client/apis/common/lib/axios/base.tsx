@@ -31,15 +31,19 @@ export class AxiosBaseApi {
         return res.data.data;
       }
 
-      if (options?.errorToast)
-        // TODO: Show error toast
-        return null;
+      if (options?.errorToast) {
+        toast.error(options.errorToast.message);
+      }
+
+      return null;
     } catch (error) {
       console.log("AxiosBaseApi -> tryGet -> error", error);
 
       if (error instanceof AxiosError)
         if (options?.errorToast) {
-          // TODO: Show error toast
+          toast.error(
+            error.response?.data.message || options.errorToast.message
+          );
         }
 
       if (options?.fallbackValue) return options.fallbackValue;

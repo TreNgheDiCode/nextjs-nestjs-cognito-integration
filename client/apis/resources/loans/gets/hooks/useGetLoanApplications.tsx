@@ -12,7 +12,7 @@ import { getApi } from "..";
 
 export const useGetLoanApplications = (options?: HookOptions) => {
   const [page, setPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(15);
   const [query, setQuery] = useState<
     QueryRequestOptions<Loan[]>["queryOptions"]
   >({});
@@ -57,6 +57,9 @@ export const useGetLoanApplications = (options?: HookOptions) => {
         pagination: pageParam,
         queryOptions: query,
         sortOptions: sort,
+        errorToast: {
+          message: "Failed to fetch loan applications",
+        },
       });
     },
     getNextPageParam: (lastPage, _, lastParam) => {
@@ -64,8 +67,8 @@ export const useGetLoanApplications = (options?: HookOptions) => {
     },
     initialPageParam: { page, limit: rowsPerPage },
     enabled: options?.enabled || true,
-    refetchOnWindowFocus: false,
     retryDelay: 5_000,
+    retry: 3,
   });
 
   return {

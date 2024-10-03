@@ -27,6 +27,8 @@ export default function LoansDataTable({ title, breadCrumbItems }: Props) {
     return data?.pages.flatMap((page) => page) ?? [];
   }, [data]);
 
+  const indexedData = flatData.map((loan, index) => ({ ...loan, index }));
+
   if (isPending || isFetching) {
     return <Loading size="lg" />;
   }
@@ -35,5 +37,5 @@ export default function LoansDataTable({ title, breadCrumbItems }: Props) {
     return "An error occurred: " + error.message;
   }
 
-  return <DataTable columns={columns} data={flatData} />;
+  return <DataTable columns={columns} data={indexedData} />;
 }
