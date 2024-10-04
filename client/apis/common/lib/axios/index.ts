@@ -11,7 +11,6 @@ class AxiosClient {
     if (!AxiosClient._instance) {
       AxiosClient._instance = axios.create({
         baseURL: "/api",
-        timeout: 10_000,
         headers: {
           "Content-Type": "application/json",
         },

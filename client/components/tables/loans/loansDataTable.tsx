@@ -37,5 +37,13 @@ export default function LoansDataTable({ title, breadCrumbItems }: Props) {
     return "An error occurred: " + error.message;
   }
 
-  return <DataTable columns={columns} data={indexedData} />;
+  return (
+    <div className="rounded-md border overflow-hidden">
+      <DataTable
+        title="Loan Applications"
+        columns={columns}
+        data={indexedData}
+      />
+    </div>
+  );
 }

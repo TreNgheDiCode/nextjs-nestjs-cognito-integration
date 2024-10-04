@@ -14,7 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 
 export default function DashboardSidebar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const pathname = usePathname();
 
   const toggleOpen = () => {
