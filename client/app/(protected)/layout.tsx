@@ -1,7 +1,7 @@
 import Header from "@/components/header";
 import HeaderProvider from "@/components/providers/headerProvider";
+import ToolbarProvider from "@/components/providers/toolbarProvider";
 import DashboardSidebar from "@/components/sidebar/dashboardSidebar";
-import ToolbarWrapper from "@/components/toolbar";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export default function ProtectedLayout({
@@ -15,13 +15,14 @@ export default function ProtectedLayout({
       <HeaderProvider>
         <section className="flex flex-col flex-1 overflow-hidden">
           <Header />
-          <div className="border-l size-full flex flex-col overflow-hidden">
-            <ToolbarWrapper />
-            <div className="p-6 flex-1 flex flex-col overflow-hidden gap-2.5">
-              {children}
-              <ReactQueryDevtools />
+          <ToolbarProvider>
+            <div className="border-l size-full flex flex-col overflow-hidden">
+              <div className="p-6 flex-1 flex flex-col overflow-hidden gap-2.5">
+                {children}
+                <ReactQueryDevtools />
+              </div>
             </div>
-          </div>
+          </ToolbarProvider>
         </section>
       </HeaderProvider>
     </main>

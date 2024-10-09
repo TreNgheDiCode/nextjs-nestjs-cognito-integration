@@ -6,7 +6,11 @@ import EmptyCell from "./emptyCell";
 function SingleBadgeCell({ value }: { value?: string }) {
   if (!value) return <EmptyCell />;
 
-  return <Badge className="text-sm rounded-md font-Poppins">{value}</Badge>;
+  return (
+    <Badge className="capitalize text-sm rounded-md font-Poppins">
+      {value}
+    </Badge>
+  );
 }
 
 function MultiBadgeCell({ value }: { value?: string[] }) {
@@ -15,7 +19,10 @@ function MultiBadgeCell({ value }: { value?: string[] }) {
   return (
     <div className="flex items-center gap-2.5">
       {value.map((status) => (
-        <Badge key={status} className="text-sm rounded-md font-Poppins">
+        <Badge
+          key={status}
+          className="capitalize text-sm rounded-md font-Poppins"
+        >
           {status}
         </Badge>
       ))}

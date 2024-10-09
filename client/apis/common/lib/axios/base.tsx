@@ -28,7 +28,10 @@ export class AxiosBaseApi {
           toast.success(options.successToast.message);
         }
 
-        return res.data.data;
+        return {
+          data: res.data.data,
+          totalCount: res.data.metadata.total,
+        };
       }
 
       if (options?.errorToast) {
@@ -46,7 +49,11 @@ export class AxiosBaseApi {
           );
         }
 
-      if (options?.fallbackValue) return options.fallbackValue;
+      if (options?.fallbackValue)
+        return {
+          data: options.fallbackValue,
+          totalCount: 0,
+        };
 
       return null;
     }

@@ -17,5 +17,11 @@ export default function DashboardPage() {
       link: "/",
     },
   ];
-  return <BlankContent title="Dashboard" breadCrumbItems={breadCrumbItems} />;
+  return (
+    <BlankContent
+      title="Dashboard"
+      breadCrumbItems={breadCrumbItems}
+      showToolbar={false}
+    />
+  );
 }

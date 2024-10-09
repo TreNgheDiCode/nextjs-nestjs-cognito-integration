@@ -1,4 +1,7 @@
-import { getNextPageParamWithLimit } from "@/apis/common/handlers";
+import {
+  getNextPageParamWithLimit,
+  getPreviousPageParamWithLimit,
+} from "@/apis/common/handlers";
 import { HookOptions } from "@/apis/common/options/hook";
 import {
   PaginationOptions,
@@ -19,6 +22,7 @@ export const useGetLoanApplications = (options?: HookOptions) => {
   const [sort, setSort] = useState<QueryRequestOptions<Loan[]>["sortOptions"]>(
     {}
   );
+  const [totalCount, setTotalCount] = useState(0);
 
   const onSearchQueryChange = useCallback(
     (value?: QueryRequestOptions<Loan[]>["queryOptions"]) => {
@@ -53,7 +57,7 @@ export const useGetLoanApplications = (options?: HookOptions) => {
   const { ...rest } = useInfiniteQuery({
     queryKey: [getQueryKey.GET_LOAN_APPLICATIONS],
     queryFn: async ({ pageParam }: { pageParam: PaginationOptions }) => {
-      return await getApi.getLoanApplications(pageParam, {
+      const res = await getApi.getLoanApplications(pageParam, {
         pagination: pageParam,
         queryOptions: query,
         sortOptions: sort,
@@ -61,9 +65,22 @@ export const useGetLoanApplications = (options?: HookOptions) => {
           message: "Failed to fetch loan applications",
         },
       });
+
+      setTotalCount(res.totalCount);
+
+      return res.data;
+    },
+    maxPages: 5,
+    getPreviousPageParam: (firstPage, _, firstParam) => {
+      return getPreviousPageParamWithLimit(firstPage, firstParam);
     },
     getNextPageParam: (lastPage, _, lastParam) => {
-      return getNextPageParamWithLimit(lastPage, lastParam, rowsPerPage);
+      return getNextPageParamWithLimit(
+        lastPage,
+        lastParam,
+        rowsPerPage,
+        totalCount
+      );
     },
     initialPageParam: { page, limit: rowsPerPage },
     enabled: options?.enabled || true,
@@ -75,6 +92,11 @@ export const useGetLoanApplications = (options?: HookOptions) => {
     onRowsPerPageChange,
     onSearchQueryChange,
     onSortChange,
+    page,
+    setPage,
+    rowsPerPage,
+    setRowsPerPage,
+    totalCount,
     ...rest,
   };
 };

@@ -16,7 +16,7 @@ class GetApi extends AxiosBaseApi {
         pagination,
         fallbackValue: [],
         ...options,
-      })) || []
+      })) || { data: [], totalCount: 0 }
     );
   }
   // #endregion

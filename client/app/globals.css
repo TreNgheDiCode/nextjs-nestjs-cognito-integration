@@ -193,14 +193,14 @@ body,
   }
 
   .scrollbar::-webkit-scrollbar-track {
-    border-radius: 100vh;
+    border-radius: 8px;
     background: var(--background);
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
     background: var(--muted);
-    border-radius: 100vh;
-    border: 1.5px solid var(--accent);
+    border-radius: 8px;
+    border: 1px solid var(--accent);
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {

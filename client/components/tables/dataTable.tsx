@@ -2,7 +2,6 @@
 
 import {
   ColumnDef,
-  ColumnPinningState,
   flexRender,
   getCoreRowModel,
   useReactTable,
@@ -16,43 +15,42 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
+  totalCount: number;
   title: string;
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
 export function DataTable<TData, TValue>({
+  totalCount,
   title,
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  const [columnPinning, setColumnPinning] = useState<ColumnPinningState>({
-    right: ["actions"],
-  });
-
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
+    manualPagination: true,
     state: {
-      columnPinning,
+      columnPinning: {
+        right: ["actions"],
+      },
     },
-    onColumnPinningChange: setColumnPinning,
+    getCoreRowModel: getCoreRowModel(),
   });
 
   return (
-    <Table className="font-Poppins text-sm">
+    <Table className="font-Poppins text-sm bg-white">
       <TableHeader className="sticky top-0 z-20">
         <TableRow>
           <TableHead
             colSpan={table.getAllFlatColumns().length}
-            className="bg-gray-200 dark:bg-muted/50 hover:bg-gray-300 dark:hover:bg-muted/40"
+            className="bg-gray-200 dark:bg-muted/50 font-normal hover:bg-gray-300 dark:hover:bg-muted/40"
           >
-            {title}
+            <span className="font-semibold">{title}</span>: {totalCount} records
           </TableHead>
         </TableRow>
         {table.getHeaderGroups().map((headerGroup) => (
@@ -88,7 +86,7 @@ export function DataTable<TData, TValue>({
               data-state={row.getIsSelected() && "selected"}
               className={
                 index % 2 === 0
-                  ? "bg-gray-200 dark:bg-muted/50 hover:bg-gray-300 dark:hover:bg-muted/40"
+                  ? "bg-gray-100 dark:bg-muted/50 hover:bg-gray-200 dark:hover:bg-muted/40"
                   : ""
               }
             >

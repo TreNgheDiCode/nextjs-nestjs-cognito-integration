@@ -46,27 +46,6 @@ export const navLinks: Links[] = [
     ],
   },
   {
-    label: "Organizations",
-    icon: <IconWorld strokeWidth={1} />,
-    children: [
-      {
-        label: "All",
-        href: "/organizations",
-        icon: <IconCategory strokeWidth={1} />,
-      },
-      {
-        label: "Teams",
-        href: "/organizations/teams",
-        icon: <IconUsersGroup strokeWidth={1} />,
-      },
-      {
-        label: "Users",
-        href: "/organizations/users",
-        icon: <IconUsers strokeWidth={1} />,
-      },
-    ],
-  },
-  {
     label: "Customers",
     icon: <IconHeadset strokeWidth={1} />,
     children: [
@@ -87,6 +66,28 @@ export const navLinks: Links[] = [
       },
     ],
   },
+  {
+    label: "Organizations",
+    icon: <IconWorld strokeWidth={1} />,
+    children: [
+      {
+        label: "All",
+        href: "/organizations",
+        icon: <IconCategory strokeWidth={1} />,
+      },
+      {
+        label: "Teams",
+        href: "/organizations/teams",
+        icon: <IconUsersGroup strokeWidth={1} />,
+      },
+      {
+        label: "Users",
+        href: "/organizations/users",
+        icon: <IconUsers strokeWidth={1} />,
+      },
+    ],
+  },
+
   {
     label: "System",
     icon: <IconSettings strokeWidth={1} />,
