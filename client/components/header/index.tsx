@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useHeader } from "../providers/headerProvider";
 import BreadCrumb from "../ui/breadcrumb";
 import { Button } from "../ui/button";
@@ -43,8 +43,14 @@ export default function Header() {
 }
 
 function CreateLeadButton() {
+  const router = useRouter();
+
+  const onNavigate = () => {
+    router.push("/leads/create");
+  };
   return (
     <Button
+      onClick={onNavigate}
       size="sm"
       className="bg-gradient-to-r from-primary to-[#239def] text-white"
     >
