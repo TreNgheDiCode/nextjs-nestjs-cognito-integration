@@ -1,4 +1,4 @@
-import BlankContent from "@/components/blankContent";
+import SetupProvider from "@/components/blankContent";
 import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
 
@@ -14,5 +14,5 @@ export default function CustomersPage() {
     },
   ];
 
-  return <BlankContent title="Customers" breadCrumbItems={breadCrumbItems} />;
+  return <SetupProvider title="Customers" breadCrumbItems={breadCrumbItems} />;
 }

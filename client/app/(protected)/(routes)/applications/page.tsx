@@ -1,4 +1,4 @@
-import BlankContent from "@/components/blankContent";
+import SetupProvider from "@/components/blankContent";
 import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
 
@@ -15,6 +15,10 @@ export default function ApplicationsPage() {
   ];
 
   return (
-    <BlankContent title="Applications" breadCrumbItems={breadCrumbItems} />
+    <SetupProvider
+      title="Applications"
+      breadCrumbItems={breadCrumbItems}
+      showToolbar={false}
+    />
   );
 }

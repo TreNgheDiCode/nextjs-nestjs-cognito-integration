@@ -11,7 +11,7 @@ interface BlankContentProps {
   showToolbar?: boolean;
 }
 
-export default function BlankContent({
+export default function SetupProvider({
   title,
   breadCrumbItems,
   showToolbar = true,
@@ -32,24 +32,5 @@ export default function BlankContent({
     setVisible,
   ]);
 
-  return (
-    <>
-      <div className="flex gap-2">
-        {[...new Array(4)].map((_, idx) => (
-          <div
-            key={"first " + idx}
-            className="h-20 w-full rounded  bg-gray-200 dark:bg-neutral-800 animate-pulse"
-          ></div>
-        ))}
-      </div>
-      <div className="flex gap-2 flex-1">
-        {[...new Array(2)].map((_, idx) => (
-          <div
-            key={"second" + idx}
-            className="h-full w-full rounded  bg-gray-200 dark:bg-neutral-800 animate-pulse"
-          ></div>
-        ))}
-      </div>
-    </>
-  );
+  return null;
 }

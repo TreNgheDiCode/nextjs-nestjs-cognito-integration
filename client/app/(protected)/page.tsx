@@ -1,4 +1,5 @@
-import BlankContent from "@/components/blankContent";
+import SetupProvider from "@/components/blankContent";
+import DemoLoansChart from "@/components/charts/dashboard/demo-loans-chart";
 import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
 
@@ -18,10 +19,13 @@ export default function DashboardPage() {
     },
   ];
   return (
-    <BlankContent
-      title="Dashboard"
-      breadCrumbItems={breadCrumbItems}
-      showToolbar={false}
-    />
+    <>
+      <SetupProvider
+        title="Dashboard"
+        breadCrumbItems={breadCrumbItems}
+        showToolbar={false}
+      />
+      <DemoLoansChart />
+    </>
   );
 }

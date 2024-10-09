@@ -1,4 +1,4 @@
-import BlankContent from "@/components/blankContent";
+import SetupProvider from "@/components/blankContent";
 import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
 
@@ -15,6 +15,6 @@ export default function OrganizationsPage() {
   ];
 
   return (
-    <BlankContent title="Organizations" breadCrumbItems={breadCrumbItems} />
+    <SetupProvider title="Organizations" breadCrumbItems={breadCrumbItems} />
   );
 }

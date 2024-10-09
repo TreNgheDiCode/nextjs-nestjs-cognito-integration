@@ -1,4 +1,4 @@
-import BlankContent from "@/components/blankContent";
+import SetupProvider from "@/components/blankContent";
 import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
 
@@ -18,5 +18,5 @@ export default function TeamsPage() {
     },
   ];
 
-  return <BlankContent title="Teams" breadCrumbItems={breadCrumbItems} />;
+  return <SetupProvider title="Teams" breadCrumbItems={breadCrumbItems} />;
 }

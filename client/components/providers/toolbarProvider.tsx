@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import ToolbarWrapper from "../toolbar";
+import Header from "../header";
 
 interface ToolbarContextType {
   visible: boolean;
@@ -62,6 +63,7 @@ const ToolbarProvider = ({ children }: { children: React.ReactNode }) => {
         setToolbarTwo,
       }}
     >
+      <Header />
       {visible ? <ToolbarWrapper /> : null}
       {children}
     </ToolbarContext.Provider>

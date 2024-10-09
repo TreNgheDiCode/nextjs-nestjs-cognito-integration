@@ -25,8 +25,6 @@ export const getNextPageParamWithLimit = <TData>(
   // Determine the total number of items fetched so far
   const totalItems = lastPage.length;
 
-  console.log("totalItems", totalItems);
-
   // Determine if there are more pages to fetch
   const totalExpected = Math.min(totalCount, rowsPerPage * lastParam.page);
 

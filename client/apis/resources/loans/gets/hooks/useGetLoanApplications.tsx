@@ -13,9 +13,15 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { ChangeEvent, useCallback, useState } from "react";
 import { getApi } from "..";
 
-export const useGetLoanApplications = (options?: HookOptions) => {
-  const [page, setPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(15);
+export const useGetLoanApplications = (
+  options?: HookOptions,
+  initialData?: { rowsPerPage?: number; page?: number }
+) => {
+  const [page, setPage] = useState(initialData?.page || 1);
+  const [rowsPerPage, setRowsPerPage] = useState(
+    initialData?.rowsPerPage || 15
+  );
+
   const [query, setQuery] = useState<
     QueryRequestOptions<Loan[]>["queryOptions"]
   >({});

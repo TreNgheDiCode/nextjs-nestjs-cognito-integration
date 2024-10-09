@@ -1,14 +1,17 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import BreadCrumb from "../ui/breadcrumb";
+import { usePathname } from "next/navigation";
 import { useHeader } from "../providers/headerProvider";
+import BreadCrumb from "../ui/breadcrumb";
+import { Button } from "../ui/button";
 import { ThemeToggle } from "./themeToggle";
 import { UserHeader } from "./userHeader";
 
 export default function Header() {
   const { title, breadCrumbItems } = useHeader();
   const { data } = useSession();
+  const pathname = usePathname();
 
   if (!data) {
     return (
@@ -26,12 +29,26 @@ export default function Header() {
             </h1>
             <BreadCrumb items={breadCrumbItems} />
           </div>
-          <ThemeToggle />
+          <div className="flex items-center">
+            {pathname.startsWith("/applications") && <CreateLeadButton />}
+            <ThemeToggle />
+          </div>
         </div>
         <div className="flex items-center gap-2.5 border-l-2 pl-4">
           <UserHeader session={data} />
         </div>
       </nav>
     </header>
+  );
+}
+
+function CreateLeadButton() {
+  return (
+    <Button
+      size="sm"
+      className="bg-gradient-to-r from-primary to-[#239def] text-white"
+    >
+      Create Lead
+    </Button>
   );
 }

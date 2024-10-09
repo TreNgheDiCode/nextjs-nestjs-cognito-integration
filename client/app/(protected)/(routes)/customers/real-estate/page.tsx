@@ -1,4 +1,4 @@
-import BlankContent from "@/components/blankContent";
+import SetupProvider from "@/components/blankContent";
 import { BreadCrumbPropsType } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
 
@@ -19,7 +19,7 @@ export default function RealEstateCustomersPage() {
   ];
 
   return (
-    <BlankContent
+    <SetupProvider
       title="Real Estate Customers"
       breadCrumbItems={breadCrumbItems}
     />
